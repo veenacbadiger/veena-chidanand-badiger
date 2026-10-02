@@ -7,21 +7,30 @@
     <title>Veena Chidanand Badiger | VLSI & Embedded Systems</title>
 
     <meta name="description"
-          content="Academic and engineering portfolio of Veena Chidanand Badiger — Electronics & Instrumentation Engineer interested in VLSI, digital IC design, FPGA and embedded systems.">
+          content="Veena Chidanand Badiger — Electronics and Instrumentation Engineer specializing in VLSI, digital IC design, FPGA and embedded systems.">
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html {
             scroll-behavior: smooth;
         }
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background: #f7f9fc;
-            color: #1f2937;
+            background: #0b1120;
+            color: #e5e7eb;
             line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
         }
 
         /* NAVIGATION */
@@ -30,24 +39,25 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255,255,255,0.96);
-            border-bottom: 1px solid #e5e7eb;
             z-index: 1000;
+            background: rgba(11, 17, 32, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #1e293b;
         }
 
         .nav-container {
             max-width: 1150px;
             margin: auto;
+            padding: 18px 25px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 18px 25px;
         }
 
         .logo {
-            font-size: 20px;
+            font-size: 22px;
             font-weight: bold;
-            color: #111827;
+            color: #ffffff;
         }
 
         .nav-links {
@@ -57,14 +67,13 @@
         }
 
         .nav-links a {
-            text-decoration: none;
-            color: #374151;
+            color: #cbd5e1;
             font-size: 14px;
-            font-weight: 600;
+            transition: 0.3s;
         }
 
         .nav-links a:hover {
-            color: #2563eb;
+            color: #60a5fa;
         }
 
         /* GENERAL */
@@ -72,17 +81,17 @@
         section {
             max-width: 1150px;
             margin: auto;
-            padding: 90px 25px;
+            padding: 100px 25px;
         }
 
-        .section-title {
-            font-size: 32px;
-            margin-bottom: 35px;
-            color: #111827;
+        h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #ffffff;
         }
 
-        .section-title span {
-            color: #2563eb;
+        h3 {
+            color: #ffffff;
         }
 
         /* HERO */
@@ -91,57 +100,57 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            background: linear-gradient(135deg, #f8fafc, #eef4ff);
-            max-width: none;
-            padding-left: calc((100% - 1100px) / 2);
-            padding-right: calc((100% - 1100px) / 2);
+            justify-content: center;
+            text-align: center;
+            padding-top: 120px;
         }
 
         .hero-content {
-            max-width: 850px;
-            padding-top: 50px;
+            max-width: 900px;
         }
 
         .hero-small {
-            color: #2563eb;
+            font-size: 14px;
+            letter-spacing: 3px;
+            color: #60a5fa;
+            margin-bottom: 20px;
             font-weight: bold;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
         }
 
         .hero-title {
-            font-size: clamp(42px, 7vw, 72px);
-            line-height: 1.05;
-            color: #111827;
+            font-size: 64px;
+            line-height: 1.1;
+            color: #ffffff;
             margin-bottom: 20px;
         }
 
         .hero-subtitle {
-            font-size: 22px;
-            color: #4b5563;
+            font-size: 23px;
+            color: #94a3b8;
             margin-bottom: 25px;
         }
 
         .hero-description {
-            max-width: 750px;
-            color: #6b7280;
+            max-width: 800px;
+            margin: auto;
+            color: #cbd5e1;
             font-size: 17px;
-            margin-bottom: 35px;
         }
 
         .buttons {
+            margin-top: 35px;
             display: flex;
+            justify-content: center;
             gap: 15px;
             flex-wrap: wrap;
         }
 
         .btn {
-            display: inline-block;
-            padding: 12px 22px;
-            border-radius: 7px;
-            text-decoration: none;
+            padding: 13px 25px;
+            border-radius: 8px;
             font-weight: bold;
-            transition: 0.2s;
+            transition: 0.3s;
+            display: inline-block;
         }
 
         .btn-primary {
@@ -154,192 +163,245 @@
         }
 
         .btn-secondary {
-            border: 1px solid #cbd5e1;
-            color: #374151;
-            background: white;
+            border: 1px solid #475569;
+            color: #e2e8f0;
         }
 
         .btn-secondary:hover {
-            border-color: #2563eb;
-            color: #2563eb;
+            background: #1e293b;
+            border-color: #60a5fa;
         }
 
         /* ABOUT */
 
         .about-text {
             max-width: 900px;
+            color: #cbd5e1;
             font-size: 17px;
-            color: #4b5563;
         }
 
-        /* EDUCATION */
+        .about-text p {
+            margin-bottom: 20px;
+        }
 
-        .education-card,
-        .experience-card,
-        .project-card,
-        .publication-card,
-        .certification-card,
-        .research-card {
-            background: white;
-            border: 1px solid #e5e7eb;
+        /* CARDS */
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: #111827;
+            border: 1px solid #1e293b;
             border-radius: 12px;
             padding: 28px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            transition: 0.3s;
         }
 
-        .education-card h3,
-        .experience-card h3,
-        .project-card h3,
-        .publication-card h3,
-        .certification-card h3,
-        .research-card h3 {
-            color: #111827;
-            margin-bottom: 8px;
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #3b82f6;
         }
 
-        .date {
-            color: #2563eb;
-            font-weight: bold;
-            font-size: 14px;
+        .card h3 {
+            font-size: 22px;
             margin-bottom: 10px;
         }
 
-        .institution {
-            color: #6b7280;
-            margin-bottom: 15px;
+        .card p {
+            color: #cbd5e1;
         }
 
         /* EXPERIENCE */
 
-        .experience-card ul,
-        .project-card ul {
+        .experience-item {
+            margin-bottom: 35px;
+            padding-left: 25px;
+            border-left: 2px solid #2563eb;
+        }
+
+        .experience-date {
+            color: #60a5fa;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .experience-item h3 {
+            margin: 8px 0;
+            font-size: 23px;
+        }
+
+        .experience-item p {
+            color: #94a3b8;
+            margin-bottom: 10px;
+        }
+
+        .experience-item ul {
             margin-left: 20px;
-            color: #4b5563;
+            color: #cbd5e1;
         }
 
         /* PROJECTS */
 
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
         .project-card {
-            margin-bottom: 0;
-            transition: transform 0.2s, box-shadow 0.2s;
+            background: #111827;
+            border: 1px solid #1e293b;
+            border-radius: 12px;
+            padding: 28px;
+            transition: 0.3s;
         }
 
         .project-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            border-color: #3b82f6;
+        }
+
+        .project-date {
+            color: #60a5fa;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .project-card h3 {
+            font-size: 23px;
+            margin-bottom: 12px;
+        }
+
+        .project-card p {
+            color: #cbd5e1;
         }
 
         .tags {
+            margin-top: 18px;
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin-top: 18px;
         }
 
         .tag {
-            background: #eff6ff;
-            color: #1d4ed8;
+            background: #1e293b;
+            color: #93c5fd;
             padding: 5px 10px;
-            border-radius: 20px;
+            border-radius: 5px;
             font-size: 12px;
-            font-weight: bold;
         }
 
         /* RESEARCH */
 
-        .research-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .research-card {
-            margin-bottom: 0;
-        }
-
         .research-number {
             font-size: 14px;
-            color: #2563eb;
+            color: #60a5fa;
             font-weight: bold;
-            margin-bottom: 10px;
+        }
+
+        .research-card h3 {
+            margin: 8px 0 12px;
+            font-size: 22px;
+        }
+
+        .research-card p {
+            color: #cbd5e1;
+        }
+
+        /* PUBLICATION */
+
+        .publication {
+            background: #111827;
+            border: 1px solid #1e293b;
+            border-radius: 12px;
+            padding: 30px;
+        }
+
+        .publication-date {
+            color: #60a5fa;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .publication h3 {
+            margin: 10px 0;
+            font-size: 25px;
+        }
+
+        .publication p {
+            color: #cbd5e1;
+            margin-bottom: 15px;
+        }
+
+        .publication-link {
+            color: #60a5fa;
+            font-weight: bold;
+        }
+
+        .publication-link:hover {
+            text-decoration: underline;
         }
 
         /* SKILLS */
 
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+        .skill-group {
+            margin-bottom: 30px;
         }
 
-        .skill-box {
-            background: white;
-            border: 1px solid #e5e7eb;
-            border-radius: 10px;
-            padding: 22px;
+        .skill-group h3 {
+            font-size: 19px;
+            margin-bottom: 8px;
+            color: #93c5fd;
         }
 
-        .skill-box h3 {
-            margin-bottom: 12px;
-            color: #111827;
-        }
-
-        .skill-box p {
-            color: #6b7280;
+        .skill-group p {
+            color: #cbd5e1;
         }
 
         /* CERTIFICATIONS */
 
         .certification-card {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-            align-items: flex-start;
+            background: #111827;
+            border: 1px solid #1e293b;
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .certification-card h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .certification-card p {
+            color: #94a3b8;
         }
 
         /* CONTACT */
 
-        .contact-box {
-            background: #111827;
-            color: white;
-            border-radius: 15px;
-            padding: 45px;
+        .contact-content {
+            text-align: center;
         }
 
-        .contact-box h2 {
-            font-size: 32px;
-            margin-bottom: 15px;
-        }
-
-        .contact-box p {
-            color: #d1d5db;
-            margin-bottom: 25px;
+        .contact-content p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #cbd5e1;
+            font-size: 17px;
         }
 
         .contact-links {
             display: flex;
-            gap: 15px;
+            justify-content: center;
+            gap: 25px;
             flex-wrap: wrap;
         }
 
         .contact-links a {
-            color: white;
-            text-decoration: none;
-            border: 1px solid #4b5563;
-            padding: 10px 18px;
-            border-radius: 6px;
+            color: #60a5fa;
+            font-weight: bold;
         }
 
         .contact-links a:hover {
-            background: #2563eb;
-            border-color: #2563eb;
+            text-decoration: underline;
         }
 
         /* FOOTER */
@@ -347,13 +409,14 @@
         footer {
             text-align: center;
             padding: 30px;
-            color: #6b7280;
+            border-top: 1px solid #1e293b;
+            color: #64748b;
             font-size: 14px;
         }
 
         /* MOBILE */
 
-        @media (max-width: 800px) {
+        @media (max-width: 768px) {
 
             .nav-container {
                 flex-direction: column;
@@ -361,536 +424,525 @@
             }
 
             .nav-links {
-                gap: 12px;
+                gap: 14px;
                 flex-wrap: wrap;
                 justify-content: center;
             }
 
-            #home {
-                padding-left: 25px;
-                padding-right: 25px;
-            }
-
             .hero-title {
-                font-size: 45px;
+                font-size: 42px;
             }
 
             .hero-subtitle {
-                font-size: 18px;
+                font-size: 19px;
+            }
+
+            .hero-description {
+                font-size: 15px;
+            }
+
+            h2 {
+                font-size: 30px;
             }
 
             section {
-                padding: 70px 20px;
-            }
-
-            .certification-card {
-                flex-direction: column;
+                padding: 80px 20px;
             }
         }
+
     </style>
 </head>
 
 <body>
 
-<!-- NAVIGATION -->
+    <!-- NAVIGATION -->
 
-<nav>
-    <div class="nav-container">
+    <nav>
+        <div class="nav-container">
 
-        <div class="logo">
-            Veena Badiger
+            <div class="logo">
+                Veena Badiger
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+        </div>
+    </nav>
+
+
+    <!-- HERO -->
+
+    <section id="home">
+
+        <div class="hero-content">
+
+            <div class="hero-small">
+                VLSI • DIGITAL IC DESIGN • PHYSICAL DESIGN
+            </div>
+
+            <h1 class="hero-title">
+                Veena Chidanand Badiger
+            </h1>
+
+            <p class="hero-subtitle">
+                Digital Hardware • FPGA • Low-Power Systems
+            </p>
+
+            <p class="hero-description">
+                Electronics and Instrumentation Engineer building expertise
+                in VLSI and digital hardware, with hands-on experience in
+                FPGA development, embedded systems and hardware-software
+                integration. Currently focused on ASIC design flow,
+                Verilog HDL, CMOS, synthesis, static timing analysis and
+                Physical Design.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#projects" class="btn btn-primary">
+                    Explore My Work
+                </a>
+
+                <a href="Veena_Chidanand_Badiger_CV.pdf"
+                   class="btn btn-secondary"
+                   target="_blank">
+                    Download CV
+                </a>
+
+                <a href="mailto:veena20030406@gmail.com"
+                   class="btn btn-secondary">
+                    Contact Me
+                </a>
+
+            </div>
+
         </div>
 
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#research">Research</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-
-    </div>
-</nav>
+    </section>
 
 
-<!-- HERO -->
+    <!-- ABOUT -->
 
-<section id="home">
+    <section id="about">
 
-    <div class="hero-content">
+        <h2>About Me</h2>
 
-        <div class="hero-small">
-            ELECTRONICS & INSTRUMENTATION ENGINEER
+        <div class="about-text">
+
+            <p>
+                I am an Electronics and Instrumentation Engineer with a
+                strong interest in VLSI, digital IC design, low-power
+                computing, FPGA systems and embedded technologies. My
+                academic and practical experience spans embedded systems,
+                IoT, FPGA development, PCB design and hardware-software
+                integration.
+            </p>
+
+            <p>
+                My current focus is on developing deeper expertise in the
+                ASIC design flow and Physical Design, including Verilog HDL,
+                CMOS fundamentals, synthesis, static timing analysis and
+                Linux-based VLSI workflows. I am particularly interested
+                in energy-efficient architectures for IoT and
+                edge-computing applications.
+            </p>
+
         </div>
 
-        <h1 class="hero-title">
-            Veena Chidanand Badiger
-        </h1>
-
-        <p class="hero-subtitle">
-            VLSI • Digital IC Design • FPGA • Embedded Systems
-        </p>
-
-        <p class="hero-description">
-            Electronics and Instrumentation Engineer with hands-on experience
-            in embedded systems, FPGA development, IoT, PCB design and VLSI.
-            Currently developing expertise in ASIC design flow, Verilog HDL,
-            CMOS, synthesis, static timing analysis and physical design.
-        </p>
-
-        <div class="buttons">
-
-    <a href="#projects" class="btn btn-primary">
-        Explore My Work
-    </a>
-
-    <a href="Veena_Chidanand_Badiger_CV.pdf"
-       class="btn btn-secondary"
-       target="_blank">
-        Download CV
-    </a>
-
-    <a href="mailto:veena20030406@gmail.com"
-       class="btn btn-secondary">
-        Contact Me
-    </a>
-
-</div>
-
-    </div>
-
-</section>
+    </section>
 
 
-<!-- ABOUT -->
+    <!-- EDUCATION -->
 
-<section id="about">
+    <section id="education">
 
-    <h2 class="section-title">
-        About <span>Me</span>
-    </h2>
+        <h2>Education</h2>
 
-    <p class="about-text">
+        <div class="card">
 
-        I am an Electronics and Instrumentation Engineer with a strong
-        interest in VLSI, digital IC design, low-power computing, FPGA
-        systems and embedded technologies. My academic and practical
-        experience spans embedded systems, IoT, FPGA development, PCB
-        design and hardware-software integration.
+            <div class="experience-date">
+                DEC 2022 — JUN 2026
+            </div>
 
-        <br><br>
+            <h3>
+                Bachelor of Engineering in Electronics and Instrumentation
+            </h3>
 
-        My current focus is on developing deeper expertise in the ASIC
-        design flow and Physical Design, including Verilog HDL, CMOS
-        fundamentals, synthesis, static timing analysis and Linux-based
-        VLSI workflows. I am particularly interested in energy-efficient
-        architectures for IoT and edge-computing applications.
+            <p>
+                JSS Academy of Technical Education, Bengaluru, India
+            </p>
 
-    </p>
+            <p>
+                <strong>CGPA:</strong> 8.27 / 10
+            </p>
 
-</section>
+            <p>
+                <strong>Accreditation:</strong> NAAC Grade A+
+            </p>
 
+            <p>
+                <strong>Relevant Coursework:</strong>
+                VLSI Design, Digital Signal Processing, Digital Design and
+                HDL, Embedded Systems, Basic Electronics, IoT, Computer
+                Organization and Architecture, Operating Systems,
+                Computer Networks, Machine Learning, Control Systems and
+                Analog Electronics.
+            </p>
 
-<!-- EDUCATION -->
-
-<section id="education">
-
-    <h2 class="section-title">
-        <span>Education</span>
-    </h2>
-
-    <div class="education-card">
-
-        <div class="date">
-            DEC 2022 — JUN 2026
         </div>
 
-        <h3>
-            Bachelor of Engineering in Electronics and Instrumentation
-        </h3>
-
-        <p class="institution">
-            JSS Academy of Technical Education, Bengaluru, India
-        </p>
-
-        <p>
-            <strong>CGPA:</strong> 8.27 / 10
-        </p>
-
-        <p>
-            <strong>Accreditation:</strong> NAAC Grade A+
-        </p>
-
-        <br>
-
-        <p>
-            <strong>Relevant Coursework:</strong>
-            VLSI Design, Digital Signal Processing, Digital Design and HDL,
-            Embedded Systems, Basic Electronics, IoT, Computer Organization
-            and Architecture, Operating Systems, Computer Networks,
-            Machine Learning, Control Systems and Analog Electronics.
-        </p>
-
-    </div>
-
-</section>
+    </section>
 
 
-<!-- EXPERIENCE -->
+    <!-- EXPERIENCE -->
 
-<section id="experience">
+    <section id="experience">
 
-    <h2 class="section-title">
-        <span>Experience</span>
-    </h2>
+        <h2>Experience</h2>
 
+        <div class="experience-item">
 
-    <div class="experience-card">
+            <div class="experience-date">
+                SEP 2026 — PRESENT
+            </div>
 
-        <div class="date">
-            SEP 2026 — PRESENT
+            <h3>
+                Engineering Intern — System Validation
+            </h3>
+
+            <p>
+                Marelli
+            </p>
+
+            <ul>
+                <li>
+                    Supporting testing and validation activities in an
+                    automotive electronics environment.
+                </li>
+
+                <li>
+                    Gaining practical experience in debugging,
+                    documentation and structured testing workflows.
+                </li>
+            </ul>
+
         </div>
 
-        <h3>
-            Engineering Intern — System Validation
-        </h3>
 
-        <p class="institution">
-            Marelli
-        </p>
+        <div class="experience-item">
 
-        <ul>
-            <li>
-                Supporting testing and validation activities in an
-                automotive electronics environment.
-            </li>
+            <div class="experience-date">
+                JUL 2026 — PRESENT
+            </div>
 
-            <li>
-                Gaining practical experience in debugging, documentation
-                and structured testing workflows.
-            </li>
-        </ul>
+            <h3>
+                VLSI Physical Design Trainee
+            </h3>
 
-    </div>
+            <p>
+                Maven Silicon
+            </p>
 
+            <ul>
+                <li>
+                    Hands-on training in ASIC/VLSI design flow, Verilog HDL,
+                    CMOS, synthesis, STA, Linux and Physical Design
+                    fundamentals.
+                </li>
 
-    <div class="experience-card">
+                <li>
+                    Practicing RTL design and synthesis using Design
+                    Compiler and Tcl.
+                </li>
+            </ul>
 
-        <div class="date">
-            JUL 2026 — PRESENT
         </div>
 
-        <h3>
-            VLSI Physical Design Trainee
-        </h3>
 
-        <p class="institution">
-            Maven Silicon
-        </p>
+        <div class="experience-item">
 
-        <ul>
-            <li>
-                Hands-on training in ASIC/VLSI design flow, Verilog HDL,
-                CMOS, synthesis, STA, Linux and Physical Design fundamentals.
-            </li>
+            <div class="experience-date">
+                FEB 2026 — MAY 2026
+            </div>
 
-            <li>
-                Practicing RTL design and synthesis using Design Compiler
-                and Tcl.
-            </li>
-        </ul>
+            <h3>
+                Intern — FPGA & Embedded Systems
+            </h3>
 
-    </div>
+            <p>
+                Bharat Electronics Limited (BEL), PDIC, Bengaluru
+            </p>
 
+            <ul>
+                <li>
+                    Developed and tested an FPGA-based temperature-analysis
+                    system using TMP126 and FPGA processing modules.
+                </li>
 
-    <div class="experience-card">
+                <li>
+                    Worked on hardware-software interfacing, automation
+                    scripts, debugging, simulation and system validation.
+                </li>
+            </ul>
 
-        <div class="date">
-            FEB 2026 — MAY 2026
         </div>
 
-        <h3>
-            Intern — FPGA & Embedded Systems
-        </h3>
 
-        <p class="institution">
-            Bharat Electronics Limited (BEL), PDIC, Bengaluru
-        </p>
+        <div class="experience-item">
 
-        <ul>
-            <li>
-                Developed and tested an FPGA-based temperature-analysis
-                system using TMP126 and FPGA processing modules.
-            </li>
+            <div class="experience-date">
+                JAN 2026 — APR 2026
+            </div>
 
-            <li>
-                Worked on hardware-software interfacing, automation
-                scripts, debugging, simulation and system validation.
-            </li>
-        </ul>
+            <h3>
+                PCB Design Intern
+            </h3>
 
-    </div>
+            <p>
+                SkillDzire Technologies Pvt. Ltd.
+            </p>
 
+            <ul>
+                <li>
+                    Designed mixed-signal PCB schematics and layouts using
+                    KiCad.
+                </li>
 
-    <div class="experience-card">
+                <li>
+                    Worked on servo drivers, LED circuits, sensor interfaces
+                    and RF applications.
+                </li>
 
-        <div class="date">
-            JAN 2026 — APR 2026
+                <li>
+                    Focused on signal integrity, power routing and
+                    manufacturability.
+                </li>
+            </ul>
+
         </div>
 
-        <h3>
-            PCB Design Intern
-        </h3>
-
-        <p class="institution">
-            SkillDzire Technologies Pvt. Ltd.
-        </p>
-
-        <ul>
-            <li>
-                Designed mixed-signal PCB schematics and layouts using KiCad.
-            </li>
-
-            <li>
-                Worked on servo drivers, LED circuits, sensor interfaces
-                and RF applications.
-            </li>
-
-            <li>
-                Focused on signal integrity, power routing and manufacturability.
-            </li>
-        </ul>
-
-    </div>
-
-</section>
+    </section>
 
 
-<!-- PROJECTS -->
+    <!-- PROJECTS -->
 
-<section id="projects">
+    <section id="projects">
 
-    <h2 class="section-title">
-        Featured <span>Projects</span>
-    </h2>
+        <h2>Featured Projects</h2>
 
-    <div class="project-grid">
+        <div class="card-grid">
+
+            <div class="project-card">
+
+                <div class="project-date">
+                    AUG 2025 — DEC 2025
+                </div>
+
+                <h3>
+                    Smart Electric Meter System
+                </h3>
+
+                <p>
+                    Developed an AI-enabled smart energy meter using ESP32,
+                    IoT sensors, MQTT/serial communication, Python and a
+                    web dashboard for real-time energy monitoring and
+                    data logging.
+                </p>
+
+                <div class="tags">
+                    <span class="tag">ESP32</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">MQTT</span>
+                    <span class="tag">IoT</span>
+                    <span class="tag">Sensors</span>
+                </div>
+
+            </div>
 
 
-        <div class="project-card">
+            <div class="project-card">
+
+                <div class="project-date">
+                    FEB 2024 — JUN 2024
+                </div>
+
+                <h3>
+                    Dual-Axis Solar Tracker
+                </h3>
+
+                <p>
+                    Designed a dual-axis solar tracking system using
+                    Arduino UNO, LDR sensors and servo motors. Implemented
+                    closed-loop control to dynamically orient the panel
+                    toward maximum light intensity.
+                </p>
+
+                <div class="tags">
+                    <span class="tag">Arduino</span>
+                    <span class="tag">C/C++</span>
+                    <span class="tag">LDR</span>
+                    <span class="tag">Control Systems</span>
+                </div>
+
+            </div>
+
+
+            <div class="project-card">
+
+                <div class="project-date">
+                    APR 2023 — JUL 2023
+                </div>
+
+                <h3>
+                    Fire-Fighting Robot
+                </h3>
+
+                <p>
+                    Developed an autonomous fire-detection and extinguishing
+                    robot using Arduino UNO, flame sensors, motor control,
+                    servo mechanism and a water-pump module.
+                </p>
+
+                <div class="tags">
+                    <span class="tag">Arduino</span>
+                    <span class="tag">Embedded C</span>
+                    <span class="tag">Sensors</span>
+                    <span class="tag">Motor Control</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- RESEARCH -->
+
+    <section id="research">
+
+        <h2>Research Interests</h2>
+
+        <div class="card-grid">
+
+            <div class="card research-card">
+
+                <div class="research-number">
+                    01
+                </div>
+
+                <h3>
+                    Low-Power SoC Architectures
+                </h3>
+
+                <p>
+                    Energy-efficient SoC architectures for IoT and edge
+                    devices, focusing on clock and power gating,
+                    low-leakage logic and architecture-level optimization.
+                </p>
+
+            </div>
+
+
+            <div class="card research-card">
+
+                <div class="research-number">
+                    02
+                </div>
+
+                <h3>
+                    Low-Power Memory & Compute
+                </h3>
+
+                <p>
+                    Optimized SRAM and compute architectures for AI edge
+                    processing, with interest in lightweight hardware
+                    accelerators and efficient neural-network inference.
+                </p>
+
+            </div>
+
+
+            <div class="card research-card">
+
+                <div class="research-number">
+                    03
+                </div>
+
+                <h3>
+                    FPGA-Based Edge AI
+                </h3>
+
+                <p>
+                    Real-time and low-power CNN and QNN acceleration on
+                    FPGA platforms for object detection and edge
+                    intelligence.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PUBLICATION -->
+
+    <section>
+
+        <h2>Publication</h2>
+
+        <div class="publication">
+
+            <div class="publication-date">
+                JAN 2026
+            </div>
 
             <h3>
                 Smart Electric Meter System
             </h3>
 
-            <div class="date">
-                AUG 2025 — DEC 2025
-            </div>
-
             <p>
-                Developed an AI-enabled smart energy meter using ESP32,
-                IoT sensors, MQTT/serial communication, Python and a
-                web dashboard for real-time energy monitoring and
-                data logging.
+                International Journal of Innovative Research in Technology
+                (IJIRT), Vol. 12, Issue 8, pp. 2184–2188
             </p>
 
-            <div class="tags">
-                <span class="tag">ESP32</span>
-                <span class="tag">Python</span>
-                <span class="tag">MQTT</span>
-                <span class="tag">IoT</span>
-                <span class="tag">Sensors</span>
-            </div>
-
-        </div>
-
-
-        <div class="project-card">
-
-            <h3>
-                Dual-Axis Solar Tracker
-            </h3>
-
-            <div class="date">
-                FEB 2024 — JUN 2024
-            </div>
-
             <p>
-                Designed a dual-axis solar tracking system using Arduino
-                UNO, LDR sensors and servo motors. Implemented closed-loop
-                control to dynamically orient the panel toward maximum
-                light intensity.
+                This paper presents the design and implementation of a
+                Smart Electric Meter System for real-time electricity
+                monitoring, automated data transmission and improved
+                energy management. The system integrates embedded systems
+                and communication technologies to support efficient and
+                scalable energy usage.
             </p>
 
-            <div class="tags">
-                <span class="tag">Arduino</span>
-                <span class="tag">C/C++</span>
-                <span class="tag">LDR</span>
-                <span class="tag">Control Systems</span>
-            </div>
+            <a
+                href="https://ijirt.org/article?manuscript=190146"
+                target="_blank"
+                class="publication-link">
+                View Publication
+            </a>
 
         </div>
 
-
-        <div class="project-card">
-
-            <h3>
-                Fire-Fighting Robot
-            </h3>
-
-            <div class="date">
-                APR 2023 — JUL 2023
-            </div>
-
-            <p>
-                Developed an autonomous fire-detection and extinguishing
-                robot using Arduino UNO, flame sensors, motor control,
-                servo mechanism and a water-pump module.
-            </p>
-
-            <div class="tags">
-                <span class="tag">Arduino</span>
-                <span class="tag">Embedded C</span>
-                <span class="tag">Sensors</span>
-                <span class="tag">Motor Control</span>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
+    </section>
 
 
-<!-- RESEARCH -->
+    <!-- SKILLS -->
 
-<section id="research">
+    <section id="skills">
 
-    <h2 class="section-title">
-        Research <span>Interests</span>
-    </h2>
+        <h2>Technical Skills</h2>
 
-    <div class="research-grid">
-
-
-        <div class="research-card">
-
-            <div class="research-number">
-                01
-            </div>
-
-            <h3>
-                Low-Power SoC Architectures
-            </h3>
-
-            <p>
-                Energy-efficient SoC architectures for IoT and edge
-                devices, focusing on clock and power gating, low-leakage
-                logic and architecture-level optimization.
-            </p>
-
-        </div>
-
-
-        <div class="research-card">
-
-            <div class="research-number">
-                02
-            </div>
-
-            <h3>
-                Low-Power Memory & Compute
-            </h3>
-
-            <p>
-                Optimized SRAM and compute architectures for AI edge
-                processing, with interest in lightweight hardware
-                accelerators and efficient neural-network inference.
-            </p>
-
-        </div>
-
-
-        <div class="research-card">
-
-            <div class="research-number">
-                03
-            </div>
-
-            <h3>
-                FPGA-Based Edge AI
-            </h3>
-
-            <p>
-                Real-time and low-power CNN and QNN acceleration on
-                FPGA platforms for object detection and edge intelligence.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- PUBLICATION -->
-
-<section id="publication">
-
-    <h2 class="section-title">
-        <span>Publication</span>
-    </h2>
-
-    <div class="publication-card">
-
-        <div class="date">
-            JAN 2026
-        </div>
-
-        <h3>
-            Smart Electric Meter System
-        </h3>
-
-        <p class="institution">
-            International Journal of Innovative Research in Technology
-            (IJIRT), Vol. 12, Issue 8, pp. 2184–2188
-        </p>
-
-        <p>
-            This paper presents the design and implementation of a Smart
-            Electric Meter System for real-time electricity monitoring,
-            automated data transmission and improved energy management.
-            The system integrates embedded systems and communication
-            technologies to support efficient and scalable energy usage.
-        </p>
-
-        <br>
-
-        <a href="https://ijirt.org/article?manuscript=190146"
-           target="_blank"
-           class="btn btn-primary">
-            View Publication
-        </a>
-
-    </div>
-
-</section>
-
-
-<!-- SKILLS -->
-
-<section id="skills">
-
-    <h2 class="section-title">
-        Technical <span>Skills</span>
-    </h2>
-
-    <div class="skills-container">
-
-
-        <div class="skill-box">
+        <div class="skill-group">
 
             <h3>
                 VLSI & Digital
@@ -904,7 +956,7 @@
         </div>
 
 
-        <div class="skill-box">
+        <div class="skill-group">
 
             <h3>
                 Programming
@@ -917,7 +969,7 @@
         </div>
 
 
-        <div class="skill-box">
+        <div class="skill-group">
 
             <h3>
                 FPGA & Embedded
@@ -931,35 +983,35 @@
         </div>
 
 
-        <div class="skill-box">
+        <div class="skill-group">
 
             <h3>
                 Simulation & Design
             </h3>
 
             <p>
-                Cadence Virtuoso · Quartus Prime · ModelSim ·
-                Xilinx ISE · Tanner S-Edit
+                Cadence Virtuoso · Quartus Prime · ModelSim · Xilinx ISE ·
+                Tanner S-Edit
             </p>
 
         </div>
 
 
-        <div class="skill-box">
+        <div class="skill-group">
 
             <h3>
                 Engineering Tools
             </h3>
 
             <p>
-                KiCad · Arduino IDE · LabVIEW · MATLAB ·
-                Keil µVision · Microsoft Office
+                KiCad · Arduino IDE · LabVIEW · MATLAB · Keil µVision ·
+                Microsoft Office
             </p>
 
         </div>
 
 
-        <div class="skill-box">
+        <div class="skill-group">
 
             <h3>
                 Operating Systems
@@ -971,131 +1023,121 @@
 
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 
-<!-- CERTIFICATIONS -->
+    <!-- CERTIFICATIONS -->
 
-<section id="certifications">
+    <section>
 
-    <h2 class="section-title">
-        <span>Certifications</span>
-    </h2>
+        <h2>Certifications</h2>
+
+        <div class="card-grid">
+
+            <div class="certification-card">
+
+                <h3>
+                    ASIC Design & Verification using Verilog HDL
+                </h3>
+
+                <p>
+                    Udemy · October 2025
+                </p>
+
+                <p>
+                    RTL design, simulation, synthesis and ASIC design
+                    workflow.
+                </p>
+
+            </div>
 
 
-    <div class="certification-card">
+            <div class="certification-card">
 
-        <div>
+                <h3>
+                    VLSI for Beginners
+                </h3>
 
-            <h3>
-                ASIC Design & Verification using Verilog HDL
-            </h3>
+                <p>
+                    NIELIT, Calicut · May 2025
+                </p>
 
-            <p class="institution">
-                Udemy · October 2025
-            </p>
+                <p>
+                    Fundamentals of VLSI design, digital logic and IC
+                    design.
+                </p>
+
+            </div>
+
+
+            <div class="certification-card">
+
+                <h3>
+                    VLSI Design Flow: RTL to GDS
+                </h3>
+
+                <p>
+                    NPTEL · July–October 2025
+                </p>
+
+                <p>
+                    RTL coding, synthesis, floorplanning, placement,
+                    routing and GDSII generation.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+
+        <div class="contact-content">
+
+            <h2>
+                Let's Connect
+            </h2>
 
             <p>
-                RTL design, simulation, synthesis and ASIC design workflow.
+                I am interested in VLSI, digital IC design, low-power
+                architectures, FPGA systems and graduate research
+                opportunities.
             </p>
+
+            <div class="contact-links">
+
+                <a href="mailto:veena20030406@gmail.com">
+                    Email
+                </a>
+
+                <a
+                    href="https://www.linkedin.com/in/veenacbadiger2003/"
+                    target="_blank">
+                    LinkedIn
+                </a>
+
+                <a
+                    href="https://github.com/veenacbadiger"
+                    target="_blank">
+                    GitHub
+                </a>
+
+            </div>
 
         </div>
 
-    </div>
+    </section>
 
 
-    <div class="certification-card">
+    <!-- FOOTER -->
 
-        <div>
-
-            <h3>
-                VLSI for Beginners
-            </h3>
-
-            <p class="institution">
-                NIELIT, Calicut · May 2025
-            </p>
-
-            <p>
-                Fundamentals of VLSI design, digital logic and IC design.
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <div class="certification-card">
-
-        <div>
-
-            <h3>
-                VLSI Design Flow: RTL to GDS
-            </h3>
-
-            <p class="institution">
-                NPTEL · July–October 2025
-            </p>
-
-            <p>
-                RTL coding, synthesis, floorplanning, placement, routing
-                and GDSII generation.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- CONTACT -->
-
-<section id="contact">
-
-    <div class="contact-box">
-
-        <h2>
-            Let's Connect
-        </h2>
-
-        <p>
-            I am interested in VLSI, digital IC design, low-power
-            architectures, FPGA systems and graduate research opportunities.
-        </p>
-
-        <div class="contact-links">
-
-            <a href="mailto:veena20030406@gmail.com">
-                Email
-            </a>
-
-            <a href="https://www.linkedin.com/in/veenacbadiger2003/"
-               target="_blank">
-                LinkedIn
-            </a>
-
-            <a href="https://github.com/veenacbadiger"
-               target="_blank">
-                GitHub
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- FOOTER -->
-
-<footer>
-
-    © 2026 Veena Chidanand Badiger · Academic & Engineering Portfolio
-
-</footer>
+    <footer>
+        © 2026 Veena Chidanand Badiger · Academic & Engineering Portfolio
+    </footer>
 
 </body>
 </html>
