@@ -1,398 +1,468 @@
-<!DOCTYPE html>
+from pathlib import Path
+
+html = r'''<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#fff7ef">
-  <meta name="description" content="Veena Badiger — Electronics and Instrumentation Engineer focused on VLSI, ASIC Physical Design, RTL design, FPGA and semiconductor technology.">
-  <title>Veena Chidanand Badiger | VLSI &amp; Physical Design</title>
+  <meta name="theme-color" content="#fff8f2">
+  <meta name="description" content="Academic and engineering portfolio of Veena Chidanand Badiger — VLSI, ASIC design, FPGA, embedded systems and semiconductor technology.">
+  <title>Veena Chidanand Badiger | Academic & Engineering Portfolio</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800;900&display=swap');
-
     :root {
-      --cream: #fff8ef;
+      --cream: #fff8f2;
       --paper: #fffdf9;
-      --pink: #f6c8d8;
-      --pink-deep: #c65f8a;
-      --pink-soft: #fff0f5;
-      --lavender: #ddd2f5;
-      --lavender-deep: #7962ad;
-      --lavender-soft: #f3efff;
-      --butter: #f8e7a9;
-      --mint: #d6eee2;
-      --ink: #342b43;
-      --muted: #756b7d;
-      --line: #eadfea;
-      --shadow: 0 12px 30px rgba(83, 57, 91, .09);
-      --radius: 22px;
-      --mono: 'DM Mono', monospace;
-      --sans: 'DM Sans', sans-serif;
-      --display: 'Nunito', sans-serif;
+      --pink: #f5c8d7;
+      --pink-deep: #c76f91;
+      --pink-soft: #fdeaf0;
+      --lavender: #dcd4f5;
+      --lavender-deep: #8272b6;
+      --lavender-soft: #f0ecfc;
+      --ink: #393343;
+      --muted: #716978;
+      --line: #eadfe7;
+      --white: #ffffff;
+      --shadow: 0 16px 40px rgba(105, 79, 112, .10);
+      --radius: 24px;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Trebuchet MS", "Segoe UI", sans-serif;
     }
 
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
     body {
       margin: 0;
       color: var(--ink);
       background:
-        radial-gradient(circle at 8% 7%, rgba(246, 200, 216, .30), transparent 22rem),
-        radial-gradient(circle at 93% 18%, rgba(221, 210, 245, .42), transparent 25rem),
+        radial-gradient(circle at 8% 8%, rgba(245, 200, 215, .26), transparent 20rem),
+        radial-gradient(circle at 94% 26%, rgba(220, 212, 245, .34), transparent 24rem),
         var(--cream);
       font-family: var(--sans);
       line-height: 1.7;
+      overflow-wrap: anywhere;
     }
     a { color: var(--lavender-deep); text-decoration-thickness: 1px; text-underline-offset: 4px; }
     a:hover { color: var(--pink-deep); }
     img { max-width: 100%; display: block; }
-    button, a { -webkit-tap-highlight-color: transparent; }
-    .container { width: min(1120px, calc(100% - 36px)); margin-inline: auto; }
-    .mono { font-family: var(--mono); font-size: .78rem; letter-spacing: .04em; }
-    .eyebrow { color: var(--pink-deep); text-transform: uppercase; font-family: var(--mono); font-size: .76rem; letter-spacing: .12em; font-weight: 500; }
-    .section { padding: 78px 0; position: relative; }
-    .section-heading { margin: 0 0 10px; font: 900 clamp(1.8rem, 4vw, 2.7rem)/1.15 var(--display); letter-spacing: -.035em; }
-    .section-intro { color: var(--muted); max-width: 720px; margin: 0 0 28px; }
-    .sticker {
-      display: inline-flex; align-items: center; gap: 7px; padding: 7px 12px;
-      border: 1.5px dashed #d8bfd9; border-radius: 999px; background: var(--paper);
-      box-shadow: 2px 3px 0 rgba(120, 93, 135, .09); font-size: .78rem; font-weight: 800;
-      transform: rotate(-2deg);
-    }
-    .tag {
-      display: inline-flex; padding: 5px 10px; border-radius: 999px; background: var(--lavender-soft);
-      color: #64518c; font: 500 .73rem var(--mono); border: 1px solid #e4dcf7;
-    }
-    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-    .paper {
-      position: relative; background: rgba(255,253,249,.95); border: 1px solid var(--line);
-      border-radius: var(--radius); padding: 26px; box-shadow: var(--shadow);
-    }
-    .paper::before {
-      content: ""; position: absolute; top: 12px; left: 50%; width: 58px; height: 13px;
-      transform: translateX(-50%) rotate(-2deg); background: rgba(246,200,216,.62);
-      border: 1px solid rgba(198,95,138,.13); border-radius: 3px;
-    }
-    .paper.lavender::before { background: rgba(221,210,245,.85); }
-    .paper.mint::before { background: rgba(214,238,226,.9); }
-    .paper.butter::before { background: rgba(248,231,169,.8); }
-    .card-title { margin: 0 0 7px; font: 800 1.18rem/1.35 var(--display); }
-    .muted { color: var(--muted); }
-    .small { font-size: .9rem; }
-    .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 20px; }
-    .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 20px; }
-    .grid-4 { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 14px; }
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 17px;
-      border-radius: 14px; border: 1.5px solid var(--ink); text-decoration: none; font-weight: 800;
-      font-size: .9rem; transition: transform .2s, box-shadow .2s; box-shadow: 3px 4px 0 var(--ink);
-      background: var(--paper); color: var(--ink);
-    }
-    .btn:hover { transform: translate(2px,2px); box-shadow: 1px 2px 0 var(--ink); color: var(--ink); }
-    .btn.primary { background: var(--pink); }
-    .btn.secondary { background: var(--lavender); }
-    .btn-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
-    .doodle { position: absolute; pointer-events: none; user-select: none; }
-    .doodle svg { width: 100%; height: 100%; overflow: visible; }
-    .doodle path, .doodle line, .doodle circle, .doodle rect, .doodle polyline {
-      stroke: currentColor; stroke-width: 2.3; stroke-linecap: round; stroke-linejoin: round; fill: none;
-    }
+    .wrap { width: min(1120px, calc(100% - 36px)); margin-inline: auto; }
     .topbar {
-      position: sticky; top: 0; z-index: 20; background: rgba(255,248,239,.9);
-      backdrop-filter: blur(16px); border-bottom: 1px solid rgba(234,223,234,.85);
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(255, 248, 242, .88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(234, 223, 231, .8);
     }
-    .nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-    .brand { text-decoration: none; color: var(--ink); font: 900 1.02rem var(--display); white-space: nowrap; }
-    .brand span { color: var(--pink-deep); }
-    .nav-links { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 5px; }
-    .nav-links a { padding: 8px 9px; text-decoration: none; color: var(--muted); font-size: .79rem; font-weight: 700; border-radius: 9px; }
-    .nav-links a:hover { background: var(--pink-soft); color: var(--pink-deep); }
-    .hero { min-height: 520px; display: grid; align-items: center; padding: 64px 0 76px; overflow: hidden; }
-    .hero-content { max-width: 820px; }
-    .hero h1 { margin: 15px 0 12px; font: 900 clamp(2.7rem, 7vw, 5.2rem)/.99 var(--display); letter-spacing: -.055em; }
-    .hero h1 .highlight { color: var(--pink-deep); }
-    .hero-copy { color: var(--muted); font-size: 1.03rem; max-width: 720px; }
-    .hero-chips { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 25px; }
-    .hero-chips span { padding: 7px 11px; background: var(--paper); border: 1px solid var(--line); border-radius: 10px; font-size: .8rem; font-weight: 800; box-shadow: 2px 3px 0 rgba(83,57,91,.07); }
-    .course { padding: 14px 15px; border: 1px dashed #ddcfe8; border-radius: 13px; background: #fffaff; font-weight: 700; font-size: .9rem; }
-    .timeline { display: grid; gap: 20px; }
-    .experience-head { display: flex; justify-content: space-between; gap: 15px; flex-wrap: wrap; margin-bottom: 10px; }
-    .experience-head p { margin: 0; }
-    ul.clean { padding-left: 20px; margin: 12px 0 0; }
-    ul.clean li { margin: 7px 0; }
+    .nav {
+      min-height: 72px; display: flex; align-items: center;
+      justify-content: space-between; gap: 20px;
+    }
+    .brand {
+      display: flex; align-items: center; gap: 10px;
+      color: var(--ink); text-decoration: none; font-weight: 800;
+      letter-spacing: -.03em;
+    }
+    .brand-mark {
+      width: 38px; height: 38px; display: grid; place-items: center;
+      border-radius: 14px; background: var(--pink-soft); border: 1px solid #f0d3df;
+      font-size: 21px; transform: rotate(-6deg);
+    }
+    .nav-links { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 6px; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none; font-size: .86rem;
+      padding: 8px 10px; border-radius: 999px;
+    }
+    .nav-links a:hover { background: var(--lavender-soft); color: var(--ink); }
+    .hero { padding: 76px 0 62px; position: relative; }
+    .hero-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: 48px; align-items: center; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid #ead8e7; background: rgba(255,255,255,.72);
+      border-radius: 999px; padding: 7px 13px; color: var(--lavender-deep);
+      font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; font-weight: 800;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      font-family: var(--serif); font-size: clamp(2.8rem, 6vw, 5.3rem);
+      letter-spacing: -.055em; line-height: 1.03; margin: 22px 0 20px;
+      font-weight: 700;
+    }
+    h1 .highlight { color: var(--pink-deep); font-style: italic; }
+    .hero-copy { max-width: 680px; color: var(--muted); font-size: 1.05rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+    .button {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 12px 18px; border-radius: 14px; text-decoration: none;
+      font-weight: 800; border: 1px solid var(--line); transition: transform .2s, box-shadow .2s;
+    }
+    .button:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+    .button.primary { background: var(--ink); color: white; border-color: var(--ink); }
+    .button.secondary { background: var(--white); color: var(--ink); }
+    .hero-art {
+      min-height: 390px; position: relative; display: grid; place-items: center;
+      border-radius: 42% 58% 53% 47% / 46% 44% 56% 54%;
+      background: linear-gradient(145deg, #fce8ef, #eee8ff 72%, #fff4d9);
+      border: 1px solid rgba(205, 183, 220, .7);
+      box-shadow: var(--shadow); padding: 28px;
+    }
+    .profile-frame {
+      width: min(255px, 80%); aspect-ratio: 4 / 5; overflow: hidden;
+      background: #fffdfb; border: 9px solid white; border-radius: 48% 48% 25px 25px;
+      box-shadow: 0 12px 30px rgba(80, 57, 89, .15); transform: rotate(3deg);
+      display: grid; place-items: center;
+    }
+    .profile-frame img { width: 100%; height: 100%; object-fit: cover; }
+    .profile-placeholder {
+      padding: 20px; text-align: center; color: var(--muted); font-size: .88rem;
+      background: linear-gradient(135deg, #fff7f6, #f3edff); width: 100%; height: 100%;
+      display: grid; place-content: center; gap: 8px;
+    }
+    .profile-placeholder span { font-size: 3rem; }
+    .doodle { position: absolute; user-select: none; pointer-events: none; }
+    .doodle.star { font-size: 2.4rem; color: #b7a7e8; }
+    .doodle.flower { font-size: 2.5rem; }
+    .doodle.chip { font-size: 2.4rem; }
+    .doodle.one { top: 30px; left: 24px; transform: rotate(-12deg); }
+    .doodle.two { top: 55px; right: 25px; transform: rotate(14deg); }
+    .doodle.three { bottom: 35px; left: 18px; transform: rotate(8deg); }
+    .doodle.four { bottom: 45px; right: 18px; transform: rotate(-8deg); }
+    .scribble {
+      position: absolute; bottom: -14px; right: 8%; background: #fffdf9;
+      padding: 11px 16px; border: 1px dashed #d4c5e6; border-radius: 12px;
+      font-family: var(--serif); font-style: italic; transform: rotate(-4deg);
+      box-shadow: 0 8px 20px rgba(105,79,112,.08);
+    }
+    section { padding: 48px 0; }
+    .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin-bottom: 24px; }
+    .section-kicker { color: var(--pink-deep); font-size: .76rem; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 5px; }
+    h2 { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3rem); line-height: 1.12; letter-spacing: -.04em; margin-bottom: 0; }
+    .heading-doodle { color: var(--lavender-deep); font-size: 1.7rem; white-space: nowrap; }
+    .card {
+      background: rgba(255, 253, 249, .9); border: 1px solid var(--line);
+      border-radius: var(--radius); padding: 25px; box-shadow: 0 8px 28px rgba(105,79,112,.045);
+    }
+    .about-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 20px; }
+    .about-card p { color: var(--muted); }
+    .fact-card { background: var(--lavender-soft); border-color: #e3dcf6; }
+    .fact-card h3 { font-family: var(--serif); font-size: 1.45rem; }
+    .fact-list { list-style: none; padding: 0; margin: 0; }
+    .fact-list li { padding: 10px 0; border-bottom: 1px dashed #d9cfea; }
+    .fact-list li:last-child { border-bottom: 0; }
+    .fact-list strong { display: block; font-size: .78rem; color: var(--lavender-deep); text-transform: uppercase; letter-spacing: .08em; }
+    .timeline { display: grid; gap: 16px; }
+    .timeline-card { position: relative; border-left: 4px solid var(--pink); }
+    .timeline-card:nth-child(even) { border-left-color: var(--lavender); }
+    .timeline-top { display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+    .timeline-card h3, .project-card h3 { font-size: 1.18rem; margin-bottom: 4px; }
+    .role { color: var(--lavender-deep); font-weight: 800; margin-bottom: 5px; }
+    .meta { color: var(--muted); font-size: .88rem; }
+    ul.detail-list { padding-left: 20px; color: var(--muted); margin-bottom: 12px; }
+    ul.detail-list li { padding: 3px 0; }
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 13px; }
+    .tag { background: var(--pink-soft); color: #91506b; border: 1px solid #f3d8e2; padding: 4px 10px; border-radius: 999px; font-size: .77rem; font-weight: 800; }
+    .tag.lavender { background: var(--lavender-soft); color: #65578f; border-color: #e2dbf5; }
+    .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
     .project-card { padding: 0; overflow: hidden; }
-    .project-image { position: relative; height: 190px; overflow: hidden; background: linear-gradient(135deg,var(--pink-soft),var(--lavender-soft)); border-bottom: 1px solid var(--line); }
-    .project-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .35s; }
-    .project-card:hover .project-image img { transform: scale(1.04); }
-    .project-image .image-placeholder { height: 100%; display: grid; place-items: center; color: var(--lavender-deep); font-size: 3rem; }
-    .project-body { padding: 22px; }
-    .project-body .mono { color: var(--pink-deep); }
-    .skill-card { padding: 22px; border-radius: 18px; border: 1px solid var(--line); background: var(--paper); }
-    .skill-icon { width: 42px; height: 42px; border-radius: 14px; display: grid; place-items: center; background: var(--pink-soft); font-size: 1.35rem; margin-bottom: 12px; }
-    .research-card { min-height: 190px; }
-    .research-card:nth-child(2n) { background: #fcf9ff; }
-    .research-number { font: 900 1.7rem var(--display); color: var(--pink-deep); }
-    .file-link { display: inline-flex; align-items: center; gap: 7px; margin-top: 12px; font-weight: 800; font-size: .88rem; }
-    .language-card { border: 1px dashed #ddcfe8; border-radius: 16px; padding: 18px; background: rgba(255,253,249,.85); }
-    .language-card h3 { margin: 0 0 5px; font: 800 1.05rem var(--display); }
-    .contact-panel { background: var(--lavender-soft); border: 2px solid var(--ink); border-radius: 28px; padding: clamp(24px,5vw,48px); box-shadow: 7px 8px 0 var(--ink); position: relative; overflow: hidden; }
-    .contact-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
-    footer { padding: 30px 0 38px; color: var(--muted); font-size: .83rem; }
-    footer .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; border-top: 1px dashed #d9c9dc; padding-top: 20px; }
-    .section-doodle { width: 62px; height: 62px; right: 3%; top: 50px; color: #d28baa; transform: rotate(8deg); }
-    .star-doodle { width: 42px; height: 42px; color: #9a83ce; }
-    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
-
-    @media (max-width: 900px) {
-      .nav { align-items: flex-start; flex-direction: column; padding: 15px 0; gap: 8px; }
-      .nav-links { justify-content: flex-start; }
-      .grid-3 { grid-template-columns: repeat(2,minmax(0,1fr)); }
-      .grid-4 { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    .project-image {
+      height: 210px; overflow: hidden; display: grid; place-items: center;
+      background: linear-gradient(135deg, #fde8ef, #eee9ff); border-bottom: 1px solid var(--line);
+      position: relative;
     }
-    @media (max-width: 650px) {
-      .container { width: min(100% - 26px, 1120px); }
-      .section { padding: 58px 0; }
-      .hero { padding: 42px 0 58px; min-height: auto; }
-      .grid-2, .grid-3 { grid-template-columns: 1fr; }
-      .hero h1 { font-size: clamp(2.8rem, 15vw, 4.4rem); }
-      .paper { padding: 23px 19px; }
-      .nav-links { gap: 2px; }
-      .nav-links a { padding: 6px 7px; font-size: .75rem; }
-      .section-doodle { opacity: .45; width: 42px; height: 42px; top: 20px; }
+    .project-image img { width: 100%; height: 100%; object-fit: cover; }
+    .project-image .placeholder { padding: 20px; text-align: center; color: #766b83; }
+    .project-image .placeholder span { display: block; font-size: 2.6rem; margin-bottom: 4px; }
+    .project-content { padding: 23px; }
+    .project-content p { color: var(--muted); margin-bottom: 10px; }
+    .project-date { font-size: .78rem; color: var(--pink-deep); text-transform: uppercase; letter-spacing: .08em; font-weight: 900; margin-bottom: 8px; }
+    .text-link { display: inline-flex; gap: 7px; align-items: center; font-weight: 800; margin-top: 12px; text-decoration: none; }
+    .skills-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .skill-card { background: #fffdfb; }
+    .skill-card:nth-child(2n) { background: #f7f3ff; }
+    .skill-card h3 { margin-bottom: 10px; font-family: var(--serif); font-size: 1.25rem; }
+    .skill-card p { color: var(--muted); margin-bottom: 0; }
+    .interest-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .interest-card { background: var(--paper); position: relative; overflow: hidden; }
+    .interest-card .symbol { font-size: 1.7rem; margin-bottom: 8px; }
+    .interest-card h3 { margin-bottom: 7px; }
+    .interest-card p { color: var(--muted); margin-bottom: 0; }
+    .publication { display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: start; }
+    .publication-icon { width: 58px; height: 58px; display: grid; place-items: center; border-radius: 18px; background: var(--pink-soft); font-size: 1.7rem; }
+    .publication p { color: var(--muted); margin-bottom: 8px; }
+    .cert-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .cert-card { display: flex; gap: 14px; align-items: flex-start; }
+    .cert-icon { flex: 0 0 45px; height: 45px; display: grid; place-items: center; border-radius: 15px; background: var(--lavender-soft); font-size: 1.35rem; }
+    .cert-card h3 { font-size: 1rem; margin-bottom: 4px; }
+    .cert-card p { color: var(--muted); font-size: .9rem; margin-bottom: 8px; }
+    .language-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+    .language-card { padding: 20px; }
+    .language-card h3 { margin-bottom: 3px; }
+    .language-card p { color: var(--muted); font-size: .9rem; margin-bottom: 0; }
+    .contact-box {
+      position: relative; overflow: hidden; background: linear-gradient(120deg, #fdeaf0, #f0ecfc);
+      border: 1px solid #e7d9ee; border-radius: 32px; padding: clamp(26px, 5vw, 50px);
+      display: grid; grid-template-columns: 1fr auto; gap: 28px; align-items: center;
+    }
+    .contact-box p { color: var(--muted); max-width: 620px; margin: 12px 0 0; }
+    .contact-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+    .contact-links a { background: rgba(255,255,255,.8); color: var(--ink); border: 1px solid #e7d9ee; padding: 9px 13px; border-radius: 12px; text-decoration: none; font-size: .88rem; font-weight: 800; }
+    .contact-links a:hover { background: white; }
+    .contact-flower { font-size: clamp(4rem, 9vw, 7rem); transform: rotate(10deg); }
+    footer { padding: 28px 0 38px; color: var(--muted); font-size: .84rem; text-align: center; }
+    footer .footer-doodle { color: var(--pink-deep); }
+    .tiny-note { color: var(--muted); font-size: .84rem; }
+    @media (max-width: 820px) {
+      .nav { padding: 12px 0; align-items: flex-start; flex-direction: column; }
+      .nav-links { justify-content: flex-start; }
+      .hero { padding-top: 48px; }
+      .hero-grid, .about-grid, .contact-box { grid-template-columns: 1fr; }
+      .hero-art { min-height: 330px; max-width: 500px; width: 100%; margin: 0 auto; }
+      .contact-flower { display: none; }
+    }
+    @media (max-width: 600px) {
+      .wrap { width: min(100% - 24px, 1120px); }
+      section { padding: 34px 0; }
+      .hero { padding-bottom: 38px; }
+      .project-grid, .skills-grid, .interest-grid, .cert-grid, .language-grid { grid-template-columns: 1fr; }
+      .section-heading { align-items: center; }
+      .heading-doodle { font-size: 1.35rem; }
+      .card { padding: 20px; }
+      .project-card { padding: 0; }
+      .project-content { padding: 19px; }
+      .project-image { height: 185px; }
+      .nav-links a { padding: 7px 8px; font-size: .8rem; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
     }
   </style>
 </head>
 <body>
   <header class="topbar">
-    <nav class="nav container" aria-label="Main navigation">
-      <a class="brand" href="#home">Veena <span>✿</span> Badiger</a>
+    <nav class="nav wrap" aria-label="Main navigation">
+      <a class="brand" href="#home"><span class="brand-mark">✿</span><span>Veena Badiger</span></a>
       <div class="nav-links">
-        <a href="#home">Home</a><a href="#about">About</a><a href="#education">Education</a>
-        <a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a>
-        <a href="#research">Research</a><a href="#publication">Publication</a><a href="#certificates">Certificates</a>
-        <a href="#languages">Languages</a><a href="#contact">Contact</a>
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#research">Research</a>
+        <a href="#publication">Publication</a>
+        <a href="#certificates">Certificates</a>
+        <a href="#contact">Contact</a>
       </div>
     </nav>
   </header>
 
   <main>
     <section class="hero" id="home">
-      <div class="container hero-content">
-        <span class="sticker">✦ Academic &amp; Engineering Portfolio · 2026</span>
-        <p class="eyebrow" style="margin-top:24px">Electronics · VLSI · Semiconductor Technology</p>
-        <h1>Hi, I'm <span class="highlight">Veena</span><span aria-hidden="true">👋</span></h1>
-        <p class="hero-copy">I'm a Physical Design Trainee at Maven Silicon with a background in Electronics and Instrumentation Engineering. I'm passionate about VLSI, ASIC Design, and semiconductor technology, continuously building my skills in RTL-to-GDSII design flow, Verilog HDL, and chip design.</p>
-        <p class="hero-copy">My goal is to pursue a Master's degree, deepen my expertise in VLSI and semiconductor technology, and contribute to innovative chip design solutions.</p>
-        <div class="btn-row">
-          <a class="btn primary" href="#projects">Explore My Work ↘</a>
-          <a class="btn secondary" href="VEENA%20CHIDANAND%20BADIGER_CV.pdf" target="_blank" rel="noopener">View CV ↗</a>
-          <a class="btn" href="https://www.linkedin.com/in/veenacbadiger2003/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow">Academic & Engineering Portfolio · 2026 ✧</span>
+          <h1>Hi, I'm <span class="highlight">Veena Badiger</span> 👋</h1>
+          <p class="hero-copy">I'm a Physical Design Trainee at Maven Silicon with a background in Electronics and Instrumentation Engineering. I'm passionate about VLSI, ASIC Design, and semiconductor technology, continuously building my skills in RTL-to-GDSII design flow, Verilog HDL, and chip design. My goal is to pursue a Master's degree, deepen my expertise in VLSI and semiconductor technology, and contribute to innovative chip design solutions.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#projects">Explore my projects <span>↗</span></a>
+            <a class="button secondary" href="VEENA%20CHIDANAND%20BADIGER_CV.pdf" target="_blank" rel="noopener">View CV <span>♡</span></a>
+          </div>
         </div>
-        <div class="hero-chips">
-          <span>VLSI Design</span><span>Verilog HDL</span><span>FPGA</span><span>ASIC Design Flow</span><span>Physical Design</span><span>Embedded Systems</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="about">
-      <div class="container">
-        <span class="eyebrow">A little introduction</span>
-        <h2 class="section-heading">About Me <span aria-hidden="true">🌷</span></h2>
-        <div class="paper">
-          <p>I completed my Bachelor's degree in Electronics and Instrumentation Engineering at JSS Academy of Technical Education, Bengaluru, affiliated with Visvesvaraya Technological University (VTU), with a CGPA of 8.27/10.</p>
-          <p>My interests include digital IC design, semiconductor engineering, embedded systems, and energy-efficient hardware. Through my internship experience and ongoing VLSI Physical Design training, I am building practical knowledge of Verilog HDL, the ASIC design flow, synthesis, static timing analysis (STA), and physical implementation.</p>
-          <p>I plan to pursue postgraduate study to strengthen my technical foundation, explore research in VLSI and semiconductor technology, and prepare for opportunities in the semiconductor industry.</p>
-        </div>
-      </div>
-      <div class="doodle section-doodle" aria-hidden="true"><svg viewBox="0 0 70 70"><path d="M35 8 C17 2 12 21 35 36 C58 21 53 2 35 8 Z"/><path d="M35 36 C25 45 22 55 22 63 M35 43 C45 43 52 48 55 55"/></svg></div>
-    </section>
-
-    <section class="section" id="education">
-      <div class="container">
-        <span class="eyebrow">The learning chapter</span>
-        <h2 class="section-heading">Education &amp; Coursework <span aria-hidden="true">📚</span></h2>
-        <div class="paper lavender" style="margin-bottom:24px">
-          <h3 class="card-title">Bachelor of Engineering — Electronics and Instrumentation Engineering</h3>
-          <p><strong>JSS Academy of Technical Education, Bengaluru</strong></p>
-          <p class="muted">Affiliated with Visvesvaraya Technological University (VTU)</p>
-          <span class="sticker">CGPA · 8.27 / 10</span>
-        </div>
-        <h3 class="card-title" style="margin-bottom:16px">Relevant Coursework</h3>
-        <div class="grid-4">
-          <div class="course">VLSI Design</div><div class="course">Digital Signal Processing</div>
-          <div class="course">Digital Design and HDL</div><div class="course">Embedded Systems</div>
-          <div class="course">Basic Electronics</div><div class="course">Internet of Things (IoT)</div>
-          <div class="course">Computer Organization and Architecture</div><div class="course">Operating Systems</div>
-          <div class="course">Computer Communication Networks</div><div class="course">Machine Learning</div>
-          <div class="course">Control System</div><div class="course">Analog Electronic Circuits</div>
+        <div class="hero-art" aria-label="Profile photo illustration">
+          <span class="doodle star one">✦</span>
+          <span class="doodle flower two">🌷</span>
+          <span class="doodle chip three">⌘</span>
+          <span class="doodle star four">✧</span>
+          <div class="profile-frame">
+            <img src="assets/profile.jpg" alt="Profile photo of Veena Chidanand Badiger" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+            <div class="profile-placeholder" style="display:none"><span>🌸</span><strong>Profile photo</strong><small>Add your image at<br>assets/profile.jpg</small></div>
+          </div>
+          <div class="scribble">dream · design · discover</div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="experience">
-      <div class="container">
-        <span class="eyebrow">Hands-on learning</span>
-        <h2 class="section-heading">Experience <span aria-hidden="true">🛠️</span></h2>
-        <div class="timeline">
-          <article class="paper">
-            <div class="experience-head"><div><h3 class="card-title">Validation Intern</h3><p><strong>Marelli</strong> · Internship</p></div><span class="sticker">September 2026 – Present</span></div>
-            <p class="muted small">Bengaluru, India</p>
-            <ul class="clean"><li>Gaining hands-on experience in automotive validation, verification, and troubleshooting.</li><li>Working with CANoe as part of validation activities.</li></ul>
-            <div class="tags"><span class="tag">CANoe</span><span class="tag">Validation</span><span class="tag">Testing</span></div>
+    <section id="about">
+      <div class="wrap">
+        <div class="section-heading"><div><div class="section-kicker">A little about me</div><h2>Curious mind, creative circuits.</h2></div><div class="heading-doodle">✿ ✧</div></div>
+        <div class="about-grid">
+          <article class="card about-card">
+            <p>I completed my Bachelor's degree in Electronics and Instrumentation Engineering at JSS Academy of Technical Education, Bengaluru, affiliated with Visvesvaraya Technological University, with a CGPA of 8.27/10.</p>
+            <p>My interests include digital IC design, semiconductor engineering, embedded systems, and energy-efficient hardware. Through my internship experience and ongoing VLSI Physical Design training, I am building my knowledge of Verilog HDL, the ASIC design flow, synthesis, static timing analysis (STA), and physical implementation.</p>
+            <p>I plan to pursue postgraduate study and continue developing the technical skills needed to contribute to the semiconductor industry.</p>
           </article>
-          <article class="paper lavender">
-            <div class="experience-head"><div><h3 class="card-title">VLSI Physical Design Trainee</h3><p><strong>Maven Silicon</strong> · Technical Training</p></div><span class="sticker">July 2026 – Present</span></div>
-            <p class="muted small">Bengaluru, India</p>
-            <ul class="clean"><li>Training in VLSI Physical Design, Digital Electronics, Verilog HDL, and RTL design.</li><li>Learning the ASIC design flow, synthesis, static timing analysis (STA), and RTL-to-GDSII implementation.</li><li>Completing lab exercises, design practice, and coursework to strengthen practical understanding.</li></ul>
-            <div class="tags"><span class="tag">Verilog HDL</span><span class="tag">Digital Electronics</span><span class="tag">ASIC Flow</span><span class="tag">Physical Design</span></div>
-          </article>
-          <article class="paper mint">
-            <div class="experience-head"><div><h3 class="card-title">Intern – FPGA &amp; Embedded Systems</h3><p><strong>Bharat Electronics Limited (BEL), PDIC</strong></p></div><span class="sticker">February 2026 – May 2026</span></div>
-            <p class="muted small">Bengaluru, India</p>
-            <ul class="clean"><li>Developed and tested an FPGA-based temperature analysis system using the TMP126 temperature sensor.</li><li>Worked with Verilog FPGA modules and hardware–software interfacing.</li><li>Performed debugging, testing, data collection, validation, board-level probing, and thermal-throttling tests.</li></ul>
-            <div class="tags"><span class="tag">Verilog</span><span class="tag">FPGA</span><span class="tag">Quartus Prime</span><span class="tag">TMP126</span></div>
-          </article>
-          <article class="paper butter">
-            <div class="experience-head"><div><h3 class="card-title">PCB Design Intern</h3><p><strong>SkillDzire</strong> · Internship</p></div><span class="sticker">January 2026 – May 2026</span></div>
-            <p class="muted small">Hyderabad, India</p>
-            <ul class="clean"><li>Worked on PCB design, schematic development, and circuit implementation.</li><li>Learned PCB layout concepts, component placement, routing, and hardware prototyping using KiCad.</li></ul>
-            <div class="tags"><span class="tag">KiCad</span><span class="tag">PCB Design</span><span class="tag">Schematic Design</span></div>
-          </article>
+          <aside class="card fact-card">
+            <h3>My little corner of engineering ✧</h3>
+            <ul class="fact-list">
+              <li><strong>Education</strong>Electronics and Instrumentation Engineering</li>
+              <li><strong>Academic score</strong>CGPA 8.27 / 10</li>
+              <li><strong>Current learning</strong>VLSI Physical Design · ASIC Flow</li>
+              <li><strong>Interests</strong>Digital ICs · FPGA · Embedded Systems</li>
+            </ul>
+          </aside>
         </div>
       </div>
     </section>
 
-    <section class="section" id="projects">
-      <div class="container">
-        <span class="eyebrow">Selected work</span>
-        <h2 class="section-heading">Projects <span aria-hidden="true">💡</span></h2>
-        <p class="section-intro">A collection of projects across embedded systems, renewable energy, robotics, FPGA development, and digital design.</p>
-        <div class="grid-2">
-          <article class="paper project-card">
-            <div class="project-image"><img src="assets/projects/smart-electric-meter.jpg" alt="Smart electric meter system project" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><div class="image-placeholder" style="display:none" aria-hidden="true">⚡</div></div>
-            <div class="project-body"><p class="mono">IoT · Embedded Systems · Energy Monitoring</p><h3 class="card-title">Smart Electric Meter System</h3><p class="muted small">August – December 2025</p><p>Developed an AI-enabled smart energy meter using ESP32, current/voltage sensors, MQTT/serial communication, Python, a web dashboard, Telegram Bot API, and data logging. Implemented energy-management logic for presence-based lighting and temperature-based fan control, with future monthly consumption prediction and device-level load classification.</p><div class="tags"><span class="tag">ESP32</span><span class="tag">Python</span><span class="tag">IoT</span><span class="tag">MQTT</span></div></div>
-          </article>
-          <article class="paper project-card lavender">
-            <div class="project-image"><img src="assets/projects/solar-tracker.jpg" alt="Dual-axis sun tracking solar panel project" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><div class="image-placeholder" style="display:none" aria-hidden="true">☀️</div></div>
-            <div class="project-body"><p class="mono">Renewable Energy · Embedded Systems</p><h3 class="card-title">Sun Tracking Solar Panel</h3><p class="muted small">February – June 2024</p><p>Designed a dual-axis solar tracker using Arduino UNO, LDR sensors, and servo motors to orient the panel toward sunlight. Implemented a closed-loop Arduino C/C++ algorithm and evaluated solar intensity and power measurements, with approximately 25% higher energy capture reported versus a fixed panel.</p><div class="tags"><span class="tag">Arduino UNO</span><span class="tag">C/C++</span><span class="tag">LDR</span><span class="tag">Servo Motors</span></div>
-          </article>
-          <article class="paper project-card butter">
-            <div class="project-image"><img src="assets/projects/fire-fighting-robot.jpg" alt="Arduino fire-fighting robot project" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><div class="image-placeholder" style="display:none" aria-hidden="true">🤖</div></div>
-            <div class="project-body"><p class="mono">Robotics · Embedded Systems</p><h3 class="card-title">Fire-Fighting Robot Using Arduino UNO</h3><p class="muted small">April – July 2023</p><p>Built a fire-detection and autonomous extinguishing robot using Arduino UNO, IR flame sensors, an L298N motor driver, DC motors, a servo, and a water pump. Tested flame localization and suppression at varying intensities and distances.</p><div class="tags"><span class="tag">Arduino</span><span class="tag">Sensors</span><span class="tag">Motor Control</span><span class="tag">Robotics</span></div>
-          </article>
-          <article class="paper project-card mint">
-            <div class="project-image"><img src="assets/projects/fpga-temperature-analysis.jpg" alt="FPGA-based temperature analysis system" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><div class="image-placeholder" style="display:none" aria-hidden="true">🌡️</div></div>
-            <div class="project-body"><p class="mono">FPGA · Embedded Systems</p><h3 class="card-title">FPGA-Based Temperature Analysis System</h3><p class="muted small">February – May 2026</p><p>Team project at BEL using the TMP126 temperature sensor. Contributed to system architecture, Verilog FPGA processing modules, and the interface for sensor/module data access.</p><div class="tags"><span class="tag">FPGA</span><span class="tag">Verilog</span><span class="tag">TMP126</span><span class="tag">Hardware Interface</span></div>
-          </article>
-          <article class="paper project-card">
-            <div class="project-image"><div class="image-placeholder" aria-hidden="true">⌘</div></div>
-            <div class="project-body"><p class="mono">RTL · Digital Design</p><h3 class="card-title">VLSI Verilog Design</h3><p>A collection of Verilog HDL course lab exercises, digital design practice, and RTL implementations.</p><div class="tags"><span class="tag">Verilog HDL</span><span class="tag">RTL</span><span class="tag">Digital Design</span></div><a class="file-link" href="https://github.com/veenacbadiger/vlsi-verilog-design" target="_blank" rel="noopener">View Verilog Design Repository ↗</a></div>
-          </article>
-          <article class="paper project-card lavender">
-            <div class="project-image"><div class="image-placeholder" aria-hidden="true">▦</div></div>
-            <div class="project-body"><p class="mono">VLSI · ASIC Physical Design</p><h3 class="card-title">VLSI Physical Design</h3><p>A dedicated repository for course practice and notes. It will include course exercises and my own work as I progress through RTL preparation, synthesis, timing constraints, STA, and physical implementation.</p><div class="tags"><span class="tag">RTL</span><span class="tag">Synthesis</span><span class="tag">STA</span><span class="tag">Physical Design</span><span class="tag">Tcl</span></div><a class="file-link" href="https://github.com/veenacbadiger/vlsi-physical-design" target="_blank" rel="noopener">View Physical Design Repository ↗</a></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="skills">
-      <div class="container">
-        <span class="eyebrow">Tools in my kit</span>
-        <h2 class="section-heading">Skills <span aria-hidden="true">🧰</span></h2>
-        <div class="grid-3">
-          <article class="skill-card"><div class="skill-icon">⌨️</div><h3 class="card-title">Programming Languages</h3><p class="muted">C · Python · Verilog HDL</p></article>
-          <article class="skill-card"><div class="skill-icon">🧪</div><h3 class="card-title">Simulation &amp; Design Tools</h3><p class="muted">Cadence Virtuoso · Quartus Prime · ModelSim · Xilinx ISE · Tanner S-Edit</p></article>
-          <article class="skill-card"><div class="skill-icon">💻</div><h3 class="card-title">Operating Systems</h3><p class="muted">Red Hat Linux · Windows</p></article>
-          <article class="skill-card"><div class="skill-icon">🔧</div><h3 class="card-title">Other Tools &amp; Platforms</h3><p class="muted">Arduino IDE · LabVIEW · MATLAB · Keil µVision · Microsoft Office · CANoe · KiCad</p></article>
-          <article class="skill-card" style="grid-column:span 2;background:var(--pink-soft)"><div class="skill-icon">⚡</div><h3 class="card-title">VLSI &amp; Physical Design Learning Focus</h3><p class="muted">Digital Logic · RTL Design · ASIC Design Flow · Synthesis Concepts · Static Timing Analysis (STA) · RTL-to-GDSII · Physical Design · Linux · Tcl</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="research">
-      <div class="container">
-        <span class="eyebrow">Questions I want to explore</span>
-        <h2 class="section-heading">Research Interests <span aria-hidden="true">🔬</span></h2>
-        <div class="grid-2">
-          <article class="paper research-card"><div class="research-number">01 ✦</div><h3 class="card-title">Digital IC &amp; ASIC Design</h3><p class="muted">RTL design, logic synthesis, and implementation of digital hardware.</p></article>
-          <article class="paper lavender research-card"><div class="research-number">02 ✦</div><h3 class="card-title">Physical Design &amp; VLSI CAD</h3><p class="muted">Timing analysis, placement, routing, and design optimization.</p></article>
-          <article class="paper butter research-card"><div class="research-number">03 ✦</div><h3 class="card-title">Low-Power VLSI</h3><p class="muted">Power-aware digital architectures and energy-efficient circuits.</p></article>
-          <article class="paper mint research-card"><div class="research-number">04 ✦</div><h3 class="card-title">FPGA &amp; SoC Design</h3><p class="muted">Hardware architecture, embedded systems, and digital system integration.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="publication">
-      <div class="container">
-        <span class="eyebrow">Research &amp; writing</span>
-        <h2 class="section-heading">Publication <span aria-hidden="true">📄</span></h2>
-        <article class="paper lavender">
-          <span class="sticker">Published research</span>
-          <h3 class="card-title" style="margin-top:18px">Smart Electric Meter System</h3>
-          <p>Published in <strong>International Journal of Innovative Research in Technology (IJIRT)</strong>, Volume 12, Issue 8, January 2026, pages 2184–2188.</p>
-          <div class="btn-row">
-            <a class="btn primary" href="https://ijirt.org/article?manuscript=190146" target="_blank" rel="noopener">Read Publication ↗</a>
-            <a class="btn" href="assets/Publications/IJIRT190146_PAPER.pdf" target="_blank" rel="noopener">Open PDF ↗</a>
+    <section id="education">
+      <div class="wrap">
+        <div class="section-heading"><div><div class="section-kicker">Learning foundations</div><h2>Education</h2></div><div class="heading-doodle">📚 ✧</div></div>
+        <article class="card">
+          <div class="timeline-top">
+            <div><h3>Bachelor's Degree in Electronics and Instrumentation Engineering</h3><div class="role">JSS Academy of Technical Education, Bengaluru</div></div>
+            <div class="meta">Visvesvaraya Technological University (VTU)</div>
+          </div>
+          <p class="meta">CGPA: 8.27/10</p>
+          <h3 style="margin-top:20px">Relevant Coursework</h3>
+          <div class="tags">
+            <span class="tag">VLSI Design</span><span class="tag lavender">Digital Signal Processing</span><span class="tag">Digital Design and HDL</span><span class="tag lavender">Embedded Systems</span><span class="tag">Basic Electronics</span><span class="tag lavender">Internet of Things (IoT)</span><span class="tag">Computer Organization and Architecture</span><span class="tag lavender">Operating Systems</span><span class="tag">Computer Communication Networks</span><span class="tag lavender">Machine Learning</span><span class="tag">Control System</span><span class="tag lavender">Analog Electronic Circuits</span>
           </div>
         </article>
       </div>
     </section>
 
-    <section class="section" id="certificates">
-      <div class="container">
-        <span class="eyebrow">Learning milestones</span>
-        <h2 class="section-heading">Certificates &amp; Training <span aria-hidden="true">🎀</span></h2>
-        <div class="grid-2">
-          <article class="paper"><h3 class="card-title">ASIC Synthesis, STA &amp; Physical Design</h3><p class="muted">Covers the ASIC implementation flow, logic synthesis, static timing analysis, and physical design, with material related to Cadence/Synopsys tool flows.</p><a class="file-link" href="assets/certificates/ASIC%20Synthesis-STA-Physical%20Design%28PD%29-Cadence%2BSynopsys%20flow.pdf" target="_blank" rel="noopener">View Certificate ↗</a></article>
-          <article class="paper lavender"><h3 class="card-title">Design Verification Using SystemVerilog + Project Demo</h3><p class="muted">Covers SystemVerilog-based design verification and a project demonstration.</p><a class="file-link" href="assets/certificates/Design%20Verification%20using%20System%20Verilog%20%28SV%29%20%2B%20Project%20Demo.pdf" target="_blank" rel="noopener">View Certificate ↗</a></article>
-          <article class="paper butter"><h3 class="card-title">Udemy HDL Certificate</h3><p class="muted">Documents HDL-related learning, including fundamentals and RTL concepts.</p><a class="file-link" href="assets/certificates/Udemy%20HDL%20Certificate.jpg" target="_blank" rel="noopener">View Certificate ↗</a></article>
-          <article class="paper mint"><h3 class="card-title">VLSI Design Flow: RTL to GDS</h3><p class="muted">Introduces the digital IC design flow from RTL to GDSII, including synthesis, timing analysis, and physical implementation.</p><a class="file-link" href="assets/certificates/VLSI%20Design%20Flow_%20RTL%20to%20GDS.pdf" target="_blank" rel="noopener">View Certificate ↗</a></article>
-          <article class="paper"><h3 class="card-title">VLSI Learning Certificate</h3><p class="muted">Documents VLSI-related learning.</p><a class="file-link" href="assets/certificates/vlsi%20certificate_signed.pdf" target="_blank" rel="noopener">View Certificate ↗</a></article>
+    <section id="experience">
+      <div class="wrap">
+        <div class="section-heading"><div><div class="section-kicker">Where I've been learning</div><h2>Experience</h2></div><div class="heading-doodle">♡ ✧</div></div>
+        <div class="timeline">
+          <article class="card timeline-card">
+            <div class="timeline-top"><div><h3>Marelli</h3><div class="role">Validation Intern</div></div><div class="meta">September 2026 – Present · Bengaluru, India</div></div>
+            <ul class="detail-list"><li>Supporting automotive validation activities, including verification and troubleshooting.</li><li>Working with CANoe for automotive communication and validation tasks.</li></ul>
+            <div class="tags"><span class="tag">CANoe</span><span class="tag lavender">Validation</span><span class="tag">Testing</span></div>
+          </article>
+          <article class="card timeline-card">
+            <div class="timeline-top"><div><h3>Maven Silicon</h3><div class="role">VLSI Physical Design Trainee · Technical Training</div></div><div class="meta">July 2026 – Present · Bengaluru, India</div></div>
+            <ul class="detail-list"><li>Building knowledge of VLSI Physical Design, Digital Electronics, Verilog HDL, and RTL design.</li><li>Learning the ASIC design flow, synthesis, static timing analysis (STA), and RTL-to-GDSII implementation.</li><li>Practising through labs and technical exercises related to digital design and physical design.</li></ul>
+            <div class="tags"><span class="tag">Verilog HDL</span><span class="tag lavender">Digital Electronics</span><span class="tag">ASIC Flow</span><span class="tag lavender">Physical Design</span></div>
+          </article>
+          <article class="card timeline-card">
+            <div class="timeline-top"><div><h3>Bharat Electronics Limited (BEL), PDIC</h3><div class="role">Intern – FPGA & Embedded Systems</div></div><div class="meta">February 2026 – May 2026 · Bengaluru, India</div></div>
+            <ul class="detail-list"><li>Worked on an FPGA-based temperature analysis system using the TMP126 temperature sensor.</li><li>Developed Verilog FPGA modules and worked on hardware–software interfacing.</li><li>Performed debugging, testing, data collection, and validation, including board probing and thermal-throttling tests.</li></ul>
+            <div class="tags"><span class="tag">Verilog</span><span class="tag lavender">FPGA</span><span class="tag">Quartus Prime</span><span class="tag lavender">TMP126</span></div>
+          </article>
+          <article class="card timeline-card">
+            <div class="timeline-top"><div><h3>SkillDzire</h3><div class="role">PCB Design Intern</div></div><div class="meta">January 2026 – May 2026 · Hyderabad, India</div></div>
+            <ul class="detail-list"><li>Worked on PCB design, schematic development, and circuit implementation.</li><li>Learned PCB layout concepts, component placement, and routing.</li><li>Practised hardware prototyping using KiCad.</li></ul>
+            <div class="tags"><span class="tag">KiCad</span><span class="tag lavender">PCB Design</span><span class="tag">Schematic Design</span></div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section" id="languages">
-      <div class="container">
-        <span class="eyebrow">Languages I use and learn</span>
-        <h2 class="section-heading">Languages <span aria-hidden="true">🌏</span></h2>
-        <div class="grid-2">
-          <article class="language-card"><h3>🇨🇳 Chinese (Mandarin)</h3><p class="muted small">Elementary Proficiency</p><p>Active learner focusing on conversational skills, pronunciation, and basic script.</p><span class="tag">Duolingo Score: 10</span></article>
-          <article class="language-card"><h3>🇰🇷 Korean</h3><p class="muted small">Elementary Proficiency</p><p>Fundamental grammar and everyday conversational practice.</p><span class="tag">Duolingo Score: 20</span></article>
-          <article class="language-card"><h3>🇬🇧 English</h3><p class="muted small">Professional Proficiency</p><p>Professional working proficiency for technical documentation, academic writing, and cross-cultural communication.</p><span class="tag">Full Professional Working</span></article>
-          <article class="language-card"><h3>🇮🇳 Kannada &amp; Hindi</h3><p class="muted small">Native / Multilingual</p><p>Native or fluent communication in regional languages for daily interpersonal and professional interactions.</p><span class="tag">Kannada (Native)</span> <span class="tag">Hindi (Fluent)</span></article>
+    <section id="projects">
+      <div class="wrap">
+        <div class="section-heading"><div><div class="section-kicker">Things I've made</div><h2>Selected projects</h2></div><div class="heading-doodle">🌼 ⌁</div></div>
+        <div class="project-grid">
+          <article class="card project-card">
+            <div class="project-image"><img src="assets/projects/smart-electric-meter.jpg" alt="Smart electric meter project" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><div class="placeholder" style="display:none"><span>⚡</span>Smart Electric Meter<br><small>Add image: assets/projects/smart-electric-meter.jpg</small></div></div>
+            <div class="project-content"><div class="project-date">August – December 2025</div><h3>Smart Electric Meter System</h3><p>Developed an AI-enabled smart energy meter using ESP32, current/voltage sensors, MQTT/serial communication, Python and a web dashboard for real-time power monitoring, remote access through a Telegram Bot API and data logging.</p><p>Implemented energy-management logic for presence-based lighting and temperature-based fan control, with monthly consumption prediction and device-level load classification.</p><div class="tags"><span class="tag">ESP32</span><span class="tag lavender">Python</span><span class="tag">IoT</span><span class="tag lavender">MQTT</span></div></div>
+          </article>
+          <article class="card project-card">
+            <div class="project-image"><img src="assets/projects/solar-tracker.jpg" alt="Sun tracking solar panel project" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><div class="placeholder" style="display:none"><span>☀️</span>Sun Tracking Solar Panel<br><small>Add image: assets/projects/solar-tracker.jpg</small></div></div>
+            <div class="project-content"><div class="project-date">February – June 2024</div><h3>Sun Tracking Solar Panel</h3><p>Designed a dual-axis solar tracking system using Arduino UNO, LDR sensors, servo motors and real-time monitoring. Implemented a closed-loop Arduino C/C++ algorithm and measured solar intensity and power output, with approximately 25% higher energy capture reported compared with a fixed panel.</p><div class="tags"><span class="tag">Arduino UNO</span><span class="tag lavender">C/C++</span><span class="tag">LDR</span><span class="tag lavender">Servo Motors</span></div></div>
+          </article>
+          <article class="card project-card">
+            <div class="project-image"><img src="assets/projects/fire-fighting-robot.jpg" alt="Arduino fire-fighting robot project" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><div class="placeholder" style="display:none"><span>🤖</span>Fire-Fighting Robot<br><small>Add image: assets/projects/fire-fighting-robot.jpg</small></div></div>
+            <div class="project-content"><div class="project-date">April – July 2023</div><h3>Fire-Fighting Robot Using Arduino UNO</h3><p>Built a fire-detection and autonomous extinguishing robot using Arduino UNO, IR flame sensors, an L298N motor driver, DC motors, a servo, and a water pump. Tested flame localization and suppression at varying intensities and distances.</p><div class="tags"><span class="tag">Arduino</span><span class="tag lavender">Sensors</span><span class="tag">Motor Control</span><span class="tag lavender">Robotics</span></div></div>
+          </article>
+          <article class="card project-card">
+            <div class="project-image"><img src="assets/projects/fpga-temperature-analysis.jpg" alt="FPGA-based temperature analysis system" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><div class="placeholder" style="display:none"><span>🌡️</span>FPGA Temperature Analysis<br><small>Add image: assets/projects/fpga-temperature-analysis.jpg</small></div></div>
+            <div class="project-content"><div class="project-date">February – May 2026</div><h3>FPGA-Based Temperature Analysis System</h3><p>Team project completed at Bharat Electronics Limited (BEL) using the TMP126 temperature sensor. Contributed to system architecture, Verilog-based FPGA processing, and an interface for sensor and module data access.</p><div class="tags"><span class="tag">FPGA</span><span class="tag lavender">Verilog</span><span class="tag">TMP126</span><span class="tag lavender">Hardware Interface</span></div></div>
+          </article>
+          <article class="card project-card">
+            <div class="project-image"><div class="placeholder"><span>⌘</span>Verilog Design Lab<br><small>RTL experiments · Digital logic</small></div></div>
+            <div class="project-content"><div class="project-date">Coursework & practice</div><h3>VLSI Verilog Design</h3><p>Verilog HDL course lab exercises, digital design practice, and RTL implementations.</p><a class="text-link" href="https://github.com/veenacbadiger/vlsi-verilog-design" target="_blank" rel="noopener">View Verilog Design Repository ↗</a><div class="tags"><span class="tag">Verilog HDL</span><span class="tag lavender">RTL</span><span class="tag">Digital Design</span></div></div>
+          </article>
+          <article class="card project-card">
+            <div class="project-image"><div class="placeholder"><span>✧</span>Physical Design Notes<br><small>Synthesis · Timing · Implementation</small></div></div>
+            <div class="project-content"><div class="project-date">Ongoing learning</div><h3>VLSI Physical Design</h3><p>Course practice and notes, including exercises and personal work as I progress through RTL preparation, synthesis, timing constraints, STA, and physical implementation.</p><a class="text-link" href="https://github.com/veenacbadiger/vlsi-physical-design" target="_blank" rel="noopener">View Physical Design Repository ↗</a><div class="tags"><span class="tag">RTL</span><span class="tag lavender">Synthesis</span><span class="tag">STA</span><span class="tag lavender">Physical Design</span><span class="tag">Tcl</span></div></div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section" id="contact">
-      <div class="container">
-        <div class="contact-panel">
-          <div class="doodle" style="width:88px;height:88px;right:25px;top:18px;color:#c65f8a" aria-hidden="true"><svg viewBox="0 0 90 90"><path d="M45 8 C34 25 19 28 8 28 C25 42 27 57 23 75 C38 64 53 64 68 75 C63 56 67 42 82 28 C63 28 53 22 45 8 Z"/><circle cx="45" cy="42" r="8"/></svg></div>
-          <span class="eyebrow">Let's connect</span>
-          <h2 class="section-heading">Contact Me <span aria-hidden="true">💌</span></h2>
-          <p class="section-intro">For academic applications, research discussions and professional opportunities.</p>
-          <div class="contact-links">
-            <a class="btn primary" href="mailto:veenachidanandbadiger@gmail.com">Email Me ↗</a>
-            <a class="btn secondary" href="https://www.linkedin.com/in/veenacbadiger2003/" target="_blank" rel="noopener">LinkedIn ↗</a>
-            <a class="btn" href="https://github.com/veenacbadiger" target="_blank" rel="noopener">GitHub ↗</a>
-            <a class="btn" href="VEENA%20CHIDANAND%20BADIGER_CV.pdf" target="_blank" rel="noopener">Download CV ↗</a>
+    <section id="skills">
+      <div class="wrap">
+        <div class="section-heading"><div><div class="section-kicker">My toolkit</div><h2>Skills & tools</h2></div><div class="heading-doodle">✎ ✧</div></div>
+        <div class="skills-grid">
+          <article class="card skill-card"><h3>Programming Languages</h3><p>C · Python · Verilog HDL</p></article>
+          <article class="card skill-card"><h3>Simulation & Design Tools</h3><p>Cadence Virtuoso · Quartus Prime · ModelSim · Xilinx ISE · Tanner S-Edit</p></article>
+          <article class="card skill-card"><h3>Operating Systems</h3><p>Red Hat Linux · Windows</p></article>
+          <article class="card skill-card"><h3>Other Tools & Platforms</h3><p>Arduino IDE · LabVIEW · MATLAB · Keil µVision · Microsoft Office · CANoe · KiCad</p></article>
+          <article class="card skill-card" style="grid-column:1/-1"><h3>VLSI & Physical Design — Learning Focus</h3><p>Digital Logic · RTL Design · ASIC Design Flow · Synthesis Concepts · STA · RTL-to-GDSII · Physical Design · Linux · Tcl</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="wrap">
+        <div class="section-heading"><div><div class="section-kicker">Questions I'm curious about</div><h2>Research interests</h2></div><div class="heading-doodle">✧ ⌁ ✿</div></div>
+        <div class="interest-grid">
+          <article class="card interest-card"><div class="symbol">▦</div><h3>Digital IC & ASIC Design</h3><p>RTL design, logic synthesis and implementation of digital hardware.</p></article>
+          <article class="card interest-card"><div class="symbol">⌁</div><h3>Physical Design & VLSI CAD</h3><p>Timing analysis, placement, routing and design optimization.</p></article>
+          <article class="card interest-card"><div class="symbol">⚡</div><h3>Low-Power VLSI</h3><p>Power-aware digital architectures and energy-efficient circuits.</p></article>
+          <article class="card interest-card"><div class="symbol">◈</div><h3>FPGA & SoC Design</h3><p>Hardware architecture, embedded systems and digital system integration.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="publication">
+      <div class="wrap">
+        <div class="section-heading"><div><div class="section-kicker">Published work</div><h2>Publication</h2></div><div class="heading-doodle">📄 ✿</div></div>
+        <article class="card publication">
+          <div class="publication-icon">📑</div>
+          <div><h3>Smart Electric Meter System</h3><p><strong>International Journal of Innovative Research in Technology (IJIRT)</strong></p><p>Volume 12, Issue 8 · January 2026 · Pages 2184–2188</p><a class="text-link" href="https://ijirt.org/article?manuscript=190146" target="_blank" rel="noopener">Read publication ↗</a><span> · </span><a class="text-link" href="assets/Publications/IJIRT190146_PAPER.pdf" target="_blank" rel="noopener">Open paper PDF ↗</a></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="certificates">
+      <div class="wrap">
+        <div class="section-heading"><div><div class="section-kicker">Learning milestones</div><h2>Certificates & training</h2></div><div class="heading-doodle">🎀 ✧</div></div>
+        <div class="cert-grid">
+          <article class="card cert-card"><div class="cert-icon">▧</div><div><h3>ASIC Synthesis, STA & Physical Design</h3><p>Covers the ASIC implementation flow, logic synthesis, static timing analysis, and physical design, with material related to Cadence/Synopsys tool flows.</p><a href="assets/certificates/ASIC%20Synthesis-STA-Physical%20Design%28PD%29-Cadence%2BSynopsys%20flow.pdf" target="_blank" rel="noopener">View certificate ↗</a></div></article>
+          <article class="card cert-card"><div class="cert-icon">✓</div><div><h3>Design Verification Using SystemVerilog + Project Demo</h3><p>Training covering SystemVerilog-based design verification and a project demonstration.</p><a href="assets/certificates/Design%20Verification%20using%20System%20Verilog%20%28SV%29%20%2B%20Project%20Demo.pdf" target="_blank" rel="noopener">View certificate ↗</a></div></article>
+          <article class="card cert-card"><div class="cert-icon">⌘</div><div><h3>Udemy HDL Certificate</h3><p>Documents HDL-related learning, including fundamentals and RTL-oriented digital design practice.</p><a href="assets/certificates/Udemy%20HDL%20Certificate.jpg" target="_blank" rel="noopener">View certificate ↗</a></div></article>
+          <article class="card cert-card"><div class="cert-icon">⇢</div><div><h3>VLSI Design Flow: RTL to GDS</h3><p>Introduces the digital IC design flow from RTL to GDSII, including synthesis, timing analysis, and physical implementation.</p><a href="assets/certificates/VLSI%20Design%20Flow_%20RTL%20to%20GDS.pdf" target="_blank" rel="noopener">View certificate ↗</a></div></article>
+          <article class="card cert-card"><div class="cert-icon">✧</div><div><h3>VLSI Learning Certificate</h3><p>Documents VLSI-related learning and technical development.</p><a href="assets/certificates/vlsi%20certificate_signed.pdf" target="_blank" rel="noopener">View certificate ↗</a></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="languages">
+      <div class="wrap">
+        <div class="section-heading"><div><div class="section-kicker">Communication</div><h2>Languages</h2></div><div class="heading-doodle">♡ ✿</div></div>
+        <div class="language-grid">
+          <article class="card language-card"><h3>Chinese (Mandarin)</h3><p>Elementary Proficiency · Active learner developing conversational skills, pronunciation, and basic script.</p><p><strong>Duolingo Score:</strong> 10</p></article>
+          <article class="card language-card"><h3>Korean</h3><p>Elementary Proficiency · Learning fundamental grammar and practising everyday conversation.</p><p><strong>Duolingo Score:</strong> 20</p></article>
+          <article class="card language-card"><h3>English</h3><p>Full Professional Working Proficiency · Technical documentation, academic writing, and cross-cultural communication.</p></article>
+          <article class="card language-card"><h3>Kannada</h3><p>Native proficiency · Regional language used in daily, interpersonal, and professional communication.</p></article>
+          <article class="card language-card"><h3>Hindi</h3><p>Fluent / multilingual proficiency · Used for daily and interpersonal communication.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="contact-box">
+          <div><div class="section-kicker">Let's connect</div><h2>Have a project or opportunity in mind?</h2><p>For academic applications, research discussions and professional opportunities.</p>
+            <div class="contact-links">
+              <a href="mailto:veenachidanandbadiger@gmail.com">✉ Email me</a>
+              <a href="https://www.linkedin.com/in/veenacbadiger2003/" target="_blank" rel="noopener">LinkedIn ↗</a>
+              <a href="https://github.com/veenacbadiger" target="_blank" rel="noopener">GitHub ↗</a>
+              <a href="VEENA%20CHIDANAND%20BADIGER_CV.pdf" target="_blank" rel="noopener">CV ↗</a>
+            </div>
           </div>
-          <p class="muted small" style="margin-top:20px">veenachidanandbadiger@gmail.com</p>
+          <div class="contact-flower" aria-hidden="true">🌸</div>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="container footer-inner">
-      <span>© 2026 Veena Chidanand Badiger · Academic &amp; Engineering Portfolio</span>
-      <span>Built with HTML and CSS · Hosted on GitHub Pages ♡</span>
-    </div>
+    <div class="wrap">© 2026 Veena Chidanand Badiger · Academic & Engineering Portfolio<br><span class="footer-doodle">✿</span> Built with HTML and CSS · Hosted on GitHub Pages <span class="footer-doodle">✧</span></div>
   </footer>
 </body>
 </html>
+'''
+
+path = Path("/mnt/data/index.html")
+path.write_text(html, encoding="utf-8")
+print(f"Created {path} ({len(html):,} characters, {len(html.splitlines())} lines).")
